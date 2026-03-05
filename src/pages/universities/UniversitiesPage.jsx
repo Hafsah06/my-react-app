@@ -21,8 +21,9 @@ export default function UniversitiesPage() {
     try {
       const data = await fetchUniversities({ country, name });
       setUnis(data.slice(0, 12));
-    } catch {
-      setError("Failed to load universities. Try again.");
+    } catch (error) {
+      console.error("Error fetching universities:", error);
+      setError(`Failed to load universities: ${error.message || "Try again."}`);
     } finally {
       setLoading(false);
     }
