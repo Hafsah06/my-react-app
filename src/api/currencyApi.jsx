@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function fetchLatestRates(base = "USD") {
-  const b = String(base).trim().toUpperCase();   
-  const res = await axios.get(`https://v6.exchangerate-api.com/v6/YOUR_API_KEY/latest/${base}`);
+  const b = String(base).trim().toUpperCase();
+  const res = await axios.get(`https://open.er-api.com/v6/latest/${b}`);
   return res.data;
 }
