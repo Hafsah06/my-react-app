@@ -1,6 +1,6 @@
 import { createApiClient } from "./axiosInstance";
 
-export const universitiesApi = createApiClient("http://universities.hipolabs.com");
+export const universitiesApi = createApiClient("https://universities.hipolabs.com");
 
 export async function fetchUniversities({ country, name }) {
   const res = await universitiesApi.get("/search", {
