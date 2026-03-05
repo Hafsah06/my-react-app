@@ -1,0 +1,16 @@
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin: 10px;
+}
+
+.subtitle {
+  color: gray;
+  font-size: 14px;
+}
+
+.content {
+  margin-top: 10px;
+}
