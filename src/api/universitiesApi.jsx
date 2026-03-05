@@ -8,19 +8,15 @@ export async function fetchUniversities({ country, name }) {
   const query = params.toString();
   const url = `https://universities.hipolabs.com/search${query ? "?" + query : ""}`;
 
-  const corsProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
+  const corsProxyUrl = `https://api.codetabs.com/v1/proxy/?quest=${encodeURIComponent(url)}`;
 
   try {
     const res = await axios.get(corsProxyUrl, {
-      timeout: 10000,
+      timeout: 15000,
     });
     return res.data;
   } catch (error) {
-    try {
-      const directRes = await axios.get(url, { timeout: 10000 });
-      return directRes.data;
-    } catch {
-      throw error;
-    }
+    console.error("Failed to fetch universities:", error.message);
+    throw new Error(`Failed to fetch universities: ${error.message}`);
   }
 }
